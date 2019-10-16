@@ -4,7 +4,7 @@ import { PeriodsService } from './periods.service';
 import {
   UserActive,
   UserActivityData,
-  Generation
+  Generation,
 } from '../data/user-activity';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class UserActivityService extends UserActivityData {
       date,
       pagesVisitCount: this.getRandom(1000),
       deltaUp: this.getRandom(1) % 2 === 0,
-      newVisits: this.getRandom(100)
+      newVisits: this.getRandom(100),
     };
   }
 
@@ -37,7 +37,7 @@ export class UserActivityService extends UserActivityData {
           slot: blocks[j],
           mw: genData[i].mw[j],
           mvar: genData[i].mvar[j],
-          kwh: genData[i].kwh[j]
+          kwh: genData[i].kwh[j],
         });
       }
       result[i] = perDaySet;
