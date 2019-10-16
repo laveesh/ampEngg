@@ -1,11 +1,9 @@
 <nb-card-header>
-  <nb-select [selected]="selectedCurrency" (selectedChange)="changeCurrency($event)">
-    <nb-option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</nb-option>
-  </nb-select>
+    <span class="title">Instantaneous Generation</span>
 </nb-card-header>
 <nb-card-body>
   <div class="chart-info">
-    <div>Daily Income</div>
+    <div>Average Generation</div>
     <div class="h6">{{ earningLiveUpdateCardData.dailyIncome | ngxNumberWithCommas }}</div>
     <div class="delta"
          [class.up]="earningLiveUpdateCardData.delta.up"

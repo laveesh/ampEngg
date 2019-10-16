@@ -87,26 +87,26 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
           data: this.linesData.firstLine.map((_, index) => index),
           silent: false,
           axisLine: {
-            show: false,
+            show: true,
           },
           axisLabel: {
-            show: false,
+            show: true,
           },
           axisTick: {
-            show: false,
+            show: true,
           },
         },
       ],
       yAxis: [
         {
           axisLine: {
-            show: false,
+            show: true,
           },
           axisLabel: {
-            show: false,
+            show: true,
           },
           axisTick: {
-            show: false,
+            show: true,
           },
           splitLine: {
             show: true,

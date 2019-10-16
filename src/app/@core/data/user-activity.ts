@@ -7,6 +7,12 @@ export interface UserActive {
   newVisits: number;
 }
 
+export interface Generation {
+  slot: string;
+  mw: number;
+  mvar: boolean;
+  kwh: number;
+}
 export abstract class UserActivityData {
-  abstract getUserActivityData(period: string): Observable<UserActive[]>;
+  abstract getUserActivityData(day: number): Observable<Generation[]>;
 }

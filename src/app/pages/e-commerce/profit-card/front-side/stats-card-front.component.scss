@@ -15,8 +15,10 @@
 
   nb-card-body {
     position: relative;
-    padding: 0;
     overflow: hidden;
+    padding: 1rem 0 0;
+    flex-direction: column;
+    flex: 1;
   }
 
   ngx-stats-bar-animation-chart {
@@ -26,5 +28,12 @@
       height: 100%;
       width: 100%;
     }
+  }
+
+  .chart-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 nb-theme(card-padding);
   }
 }

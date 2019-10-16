@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
-import { of as observableOf,  Observable } from 'rxjs';
+import { of as observableOf, Observable } from 'rxjs';
 import { PeriodsService } from './periods.service';
-import { UserActive, UserActivityData } from '../data/user-activity';
+import {
+  UserActive,
+  UserActivityData,
+  Generation
+} from '../data/user-activity';
 
 @Injectable()
 export class UserActivityService extends UserActivityData {
-
   private getRandom = (roundTo: number) => Math.round(Math.random() * roundTo);
   private generateUserActivityRandomData(date) {
     return {
       date,
       pagesVisitCount: this.getRandom(1000),
       deltaUp: this.getRandom(1) % 2 === 0,
-      newVisits: this.getRandom(100),
+      newVisits: this.getRandom(100)
     };
   }
 
@@ -20,15 +23,31 @@ export class UserActivityService extends UserActivityData {
 
   constructor(private periods: PeriodsService) {
     super();
-    this.data = {
-      week: this.getDataWeek(),
-      month: this.getDataMonth(),
-      year: this.getDataYear(),
-    };
+    this.getDateWiseData();
+  }
+
+  private getDateWiseData() {
+    const blocks = this.periods.getBlocks();
+    const genData = this.periods.getGenerationData();
+    const result = {};
+    for (let i = 0; i < 31; i++) {
+      const perDaySet = [];
+      for (let j = 0; j < 96; j++) {
+        perDaySet.push({
+          slot: blocks[j],
+          mw: genData[i].mw[j],
+          mvar: genData[i].mvar[j],
+          kwh: genData[i].kwh[j]
+        });
+      }
+      result[i] = perDaySet;
+    }
+
+    this.data = result;
   }
 
   private getDataWeek(): UserActive[] {
-    return this.periods.getWeeks().map((week) => {
+    return this.periods.getWeeks().map(week => {
       return this.generateUserActivityRandomData(week);
     });
   }
@@ -46,12 +65,12 @@ export class UserActivityService extends UserActivityData {
   }
 
   private getDataYear(): UserActive[] {
-    return this.periods.getYears().map((year) => {
+    return this.periods.getYears().map(year => {
       return this.generateUserActivityRandomData(year);
     });
   }
 
-  getUserActivityData(period: string): Observable<UserActive[]> {
-    return observableOf(this.data[period]);
+  getUserActivityData(day: number): Observable<Generation[]> {
+    return observableOf(this.data[day]);
   }
 }

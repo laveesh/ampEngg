@@ -1,22 +1,40 @@
 <nb-card size="large">
+  <nb-card-header>
+    <h3>Electricity Analytics</h3>
+    <div class="subtitle">Generation</div>
+  </nb-card-header>
   <nb-tabset fullWidth (changeTab)="changeTab($event)">
-    <nb-tab tabTitle="Orders">
+    <nb-tab tabTitle="15 Minute Blocks">
       <div class="chart-container">
-        <ngx-chart-panel-summary [summary]="chartPanelSummary"></ngx-chart-panel-summary>
-        <ngx-chart-panel-header [type]="period"
-                                (periodChange)="setPeriodAndGetChartData($event)">
+        <ngx-chart-panel-summary
+          [summary]="chartPanelSummary"
+        ></ngx-chart-panel-summary>
+        <ngx-chart-panel-header
+          [type]="period"
+          (periodChange)="setPeriodAndGetChartData($event)"
+        >
         </ngx-chart-panel-header>
-        <ngx-orders-chart #ordersChart [ordersChartData]="ordersChartData"></ngx-orders-chart>
+        <ngx-orders-chart
+          #ordersChart
+          [ordersChartData]="ordersChartData"
+        ></ngx-orders-chart>
       </div>
     </nb-tab>
-    <nb-tab tabTitle="Profit" [lazyLoad]="true">
+    <!-- <nb-tab tabTitle="Instantaneous" [lazyLoad]="true">
       <div class="chart-container">
-        <ngx-chart-panel-summary [summary]="chartPanelSummary"></ngx-chart-panel-summary>
-        <ngx-chart-panel-header [type]="period"
-                                (periodChange)="setPeriodAndGetChartData($event)">
+        <ngx-chart-panel-summary
+          [summary]="chartPanelSummary"
+        ></ngx-chart-panel-summary>
+        <ngx-chart-panel-header
+          [type]="period"
+          (periodChange)="setPeriodAndGetChartData($event)"
+        >
         </ngx-chart-panel-header>
-        <ngx-profit-chart #profitChart [profitChartData]="profitChartData"></ngx-profit-chart>
+        <ngx-profit-chart
+          #profitChart
+          [profitChartData]="profitChartData"
+        ></ngx-profit-chart>
       </div>
-    </nb-tab>
+    </nb-tab> -->
   </nb-tabset>
 </nb-card>
