@@ -9,20 +9,16 @@ export class OrdersProfitChartService extends OrdersProfitChartData {
 
   private summary = [
     {
-      title: 'Marketplace',
-      value: 3654,
-    },
-    {
       title: 'Last Month',
-      value: 946,
+      value: `508167 MW`,
     },
     {
       title: 'Last Week',
-      value: 654,
+      value: '102550 MW',
     },
     {
       title: 'Today',
-      value: 230,
+      value: '14943 MW',
     },
   ];
 

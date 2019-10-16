@@ -131,8 +131,6 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
       },
       series: [
         this.getFirstLine(eTheme),
-        this.getSecondLine(eTheme),
-        this.getThirdLine(eTheme),
       ],
     };
   }
@@ -147,12 +145,23 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
           opacity: 0,
         },
         emphasis: {
-          opacity: 0,
+          color: '#ffffff',
+          borderColor: eTheme.itemBorderColor,
+          borderWidth: 2,
+          opacity: 1,
         },
       },
       lineStyle: {
         normal: {
-          width: 0,
+          width: eTheme.lineWidth,
+          type: eTheme.lineStyle,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: eTheme.secondLineGradFrom,
+          }, {
+            offset: 1,
+            color: eTheme.secondLineGradTo,
+          }]),
         },
       },
       areaStyle: {

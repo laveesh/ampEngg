@@ -31,7 +31,7 @@ export class EarningService extends EarningData {
         up: true,
         value: 4,
       },
-      dailyIncome: 45895,
+      dailyIncome: 14080,
     },
     tether: {
       liveChart: [],
@@ -53,7 +53,7 @@ export class EarningService extends EarningData {
 
   getDefaultLiveChartData(elementsNumber: number) {
     this.currentDate = new Date();
-    this.currentValue = Math.random() * 1000;
+    this.currentValue = Math.random() * 500;
 
     return Array.from(Array(elementsNumber))
       .map(item => this.generateRandomLiveChartData());

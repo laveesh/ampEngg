@@ -14,9 +14,9 @@ export class ChartPanelHeaderComponent implements OnDestroy {
 
   @Output() periodChange = new EventEmitter<string>();
 
-  @Input() type: string = 'week';
+  @Input() type: string = 'today';
 
-  types: string[] = ['week', 'month', 'year'];
+  types: string[] = ['today', 'week', 'month'];
   chartLegend: {iconColor: string; title: string}[];
   breakpoint: NbMediaBreakpoint = { name: '', width: 0 };
   breakpoints: any;
@@ -44,16 +44,8 @@ export class ChartPanelHeaderComponent implements OnDestroy {
   setLegendItems(orderProfitLegend) {
     this.chartLegend = [
       {
-        iconColor: orderProfitLegend.firstItem,
-        title: 'Payment',
-      },
-      {
         iconColor: orderProfitLegend.secondItem,
-        title: 'Canceled',
-      },
-      {
-        iconColor: orderProfitLegend.thirdItem,
-        title: 'All orders',
+        title: 'Electricity Generation in MW (Megawatt)',
       },
     ];
   }

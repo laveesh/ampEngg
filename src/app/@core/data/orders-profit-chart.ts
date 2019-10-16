@@ -4,7 +4,7 @@ import { ProfitChart  } from './profit-chart';
 
 export interface OrderProfitChartSummary {
   title: string;
-  value: number;
+  value: number | string;
 }
 
 export abstract class OrdersProfitChartData {
