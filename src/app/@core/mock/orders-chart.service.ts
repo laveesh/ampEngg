@@ -14,7 +14,7 @@ export class OrdersChartService extends OrdersChartData {
     this.data = {
       today: this.getDataForYearPeriod(),
       week: this.getDataForWeekPeriod(),
-      month: this.getDataForMonthPeriod()
+      month: this.getDataForMonthPeriod(),
     };
   }
 
@@ -704,9 +704,9 @@ export class OrdersChartService extends OrdersChartData {
           245.38,
           243.25,
           241.24,
-          240.26
-        ]
-      ]
+          240.26,
+        ],
+      ],
     };
   }
 
@@ -3690,9 +3690,9 @@ export class OrdersChartService extends OrdersChartData {
           100.94,
           100.74,
           100.52,
-          100.92
-        ]
-      ]
+          100.92,
+        ],
+      ],
     };
   }
 
@@ -3796,9 +3796,9 @@ export class OrdersChartService extends OrdersChartData {
           119.98,
           119.36,
           119.26,
-          119.1
-        ]
-      ]
+          119.1,
+        ],
+      ],
     };
   }
 

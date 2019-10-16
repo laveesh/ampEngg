@@ -10,7 +10,7 @@ export class ProfitBarAnimationChartService extends ProfitBarAnimationChartData 
     super();
     this.data = {
       firstLine: this.getDataForFirstLine(),
-      secondLine: this.getDataForSecondLine()
+      secondLine: this.getDataForSecondLine(),
     };
   }
 

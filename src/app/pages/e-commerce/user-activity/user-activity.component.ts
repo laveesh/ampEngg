@@ -4,14 +4,13 @@ import { takeWhile } from 'rxjs/operators';
 
 import {
   UserActivityData,
-  UserActive,
-  Generation
+  Generation,
 } from '../../../@core/data/user-activity';
 
 @Component({
   selector: 'ngx-user-activity',
   styleUrls: ['./user-activity.component.scss'],
-  templateUrl: './user-activity.component.html'
+  templateUrl: './user-activity.component.html',
 })
 export class ECommerceUserActivityComponent implements OnDestroy {
   private alive = true;
@@ -23,7 +22,7 @@ export class ECommerceUserActivityComponent implements OnDestroy {
 
   constructor(
     private themeService: NbThemeService,
-    private userActivityService: UserActivityData
+    private userActivityService: UserActivityData,
   ) {
     this.getDateArray();
 
