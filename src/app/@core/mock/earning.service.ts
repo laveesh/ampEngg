@@ -7,21 +7,21 @@ export class EarningService extends EarningData {
 
   private currentDate: Date = new Date();
   private currentValue = Math.random() * 1000;
-  private ONE_DAY = 24 * 3600 * 1000;
+  private ONE_DAY = 1000;
 
   private pieChartData = [
     {
       value: 50,
-      name: 'Bitcoin',
+      name: 'Bitcoin'
     },
     {
       value: 25,
-      name: 'Tether',
+      name: 'Tether'
     },
     {
       value: 25,
-      name: 'Ethereum',
-    },
+      name: 'Ethereum'
+    }
   ];
 
   private liveUpdateChartData = {
@@ -29,34 +29,35 @@ export class EarningService extends EarningData {
       liveChart: [],
       delta: {
         up: true,
-        value: 4,
+        value: 4
       },
-      dailyIncome: 14080,
+      dailyIncome: 14080
     },
     tether: {
       liveChart: [],
       delta: {
         up: false,
-        value: 9,
+        value: 9
       },
-      dailyIncome: 5862,
+      dailyIncome: 5862
     },
     ethereum: {
       liveChart: [],
       delta: {
         up: false,
-        value: 21,
+        value: 21
       },
-      dailyIncome: 584,
-    },
+      dailyIncome: 584
+    }
   };
 
   getDefaultLiveChartData(elementsNumber: number) {
     this.currentDate = new Date();
-    this.currentValue = Math.random() * 500;
+    this.currentValue = Math.random() * 100;
 
-    return Array.from(Array(elementsNumber))
-      .map(item => this.generateRandomLiveChartData());
+    return Array.from(Array(elementsNumber)).map(item =>
+      this.generateRandomLiveChartData()
+    );
   }
 
   generateRandomLiveChartData() {
@@ -69,13 +70,17 @@ export class EarningService extends EarningData {
 
     return {
       value: [
-        [
+        `${[
           this.currentDate.getFullYear(),
           this.currentDate.getMonth(),
-          this.currentDate.getDate(),
-        ].join('/'),
-        Math.round(this.currentValue),
-      ],
+          this.currentDate.getDate()
+        ].join('/')}T${[
+          this.currentDate.getHours(),
+          this.currentDate.getMinutes(),
+          this.currentDate.getSeconds() < 10 ? '0'+ this.currentDate.getSeconds(): this.currentDate.getSeconds(),
+        ].join(':')}`,
+        Math.round(this.currentValue)
+      ]
     };
   }
 
@@ -85,7 +90,7 @@ export class EarningService extends EarningData {
 
     data.liveChart.shift();
     data.liveChart.push(newValue);
-
+    console.log("TCL: EarningService -> newValue", newValue)
     return observableOf(data.liveChart);
   }
 

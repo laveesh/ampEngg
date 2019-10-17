@@ -3,6 +3,8 @@
 @include nb-install-component() {
   nb-card {
     position: relative;
+    height: 32.5rem;
+    padding: 0 1.25rem;
   }
 
   .flip-icon {
