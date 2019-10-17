@@ -57,7 +57,7 @@ export class EarningCardFrontComponent implements OnDestroy, OnInit {
       this.intervalSubscription.unsubscribe();
     }
 
-    this.intervalSubscription = interval(200)
+    this.intervalSubscription = interval(1000)
       .pipe(
         takeWhile(() => this.alive),
         switchMap(() => this.earningService.getEarningLiveUpdateCardData(currency)),
