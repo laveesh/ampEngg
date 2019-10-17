@@ -1,9 +1,11 @@
 <nb-card-header>
+  <h5>
     <span class="title">Instantaneous Generation</span>
+  </h5>
 </nb-card-header>
 <nb-card-body>
   <div class="chart-info">
-    <div>Average Generation</div>
+    <div>Average Generation Per Day</div>
     <div class="h6">{{ earningLiveUpdateCardData.dailyIncome | ngxNumberWithCommas }}</div>
     <div class="delta"
          [class.up]="earningLiveUpdateCardData.delta.up"

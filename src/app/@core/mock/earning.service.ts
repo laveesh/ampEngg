@@ -75,9 +75,9 @@ export class EarningService extends EarningData {
           this.currentDate.getMonth(),
           this.currentDate.getDate()
         ].join('/')}T${[
-          this.currentDate.getHours(),
-          this.currentDate.getMinutes(),
-          this.currentDate.getSeconds() < 10 ? '0'+ this.currentDate.getSeconds(): this.currentDate.getSeconds(),
+          this.currentDate.getHours() < 10 ? '0' + this.currentDate.getHours() : this.currentDate.getHours(),
+          this.currentDate.getMinutes() < 10 ? '0' + this.currentDate.getMinutes() : this.currentDate.getMinutes(),
+          this.currentDate.getSeconds() < 10 ? '0' + this.currentDate.getSeconds() : this.currentDate.getSeconds(),
         ].join(':')}`,
         Math.round(this.currentValue)
       ]
@@ -90,7 +90,6 @@ export class EarningService extends EarningData {
 
     data.liveChart.shift();
     data.liveChart.push(newValue);
-    console.log("TCL: EarningService -> newValue", newValue)
     return observableOf(data.liveChart);
   }
 

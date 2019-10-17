@@ -48,7 +48,6 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         delay(1),
       )
       .subscribe(config => {
-        console.log(config);
         const eTheme: any = config.variables.orders;
 
         this.setOptions(eTheme);

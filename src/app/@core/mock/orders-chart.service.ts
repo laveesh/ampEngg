@@ -27,7 +27,6 @@ export class OrdersChartService extends OrdersChartData {
     // for (let index = diff; index <= date.getDate(); index++) {
     //   data.push(...genData[index].mw);
     // }
-    // console.log(data);
 
     return {
       chartLabel: this.getDataLabels(672, this.period.getBLockList()),
