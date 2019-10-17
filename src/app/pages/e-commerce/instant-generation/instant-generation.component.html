@@ -1,0 +1,30 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <span style="font-size: 1.5em;"
+      >Electricity generation in every 1 second (Instantaneous Data) of last 15 minutes</span
+    >
+  </nb-card-header>
+
+  <nb-list class="user-activity-list">
+    <nb-list-item *ngFor="let item of userActivity">
+      <div class="visited-date">
+        {{ item.slot }}
+      </div>
+
+      <div class="visited-pages-count">
+        <div class="caption">MW (Megawatt)</div>
+        <div class="value">{{ item.mw }}</div>
+      </div>
+
+      <div class="visited-pages-count">
+        <div class="caption">MVAr (Mega Volt Amps)</div>
+        <div class="value">{{ item.mvar }}</div>
+      </div>
+
+      <div class="visited-pages-count">
+        <div class="caption">KWH (Kilowatt Hour)</div>
+        <div class="value">{{ item.kwh }}</div>
+      </div>
+    </nb-list-item>
+  </nb-list>
+</nb-card>
