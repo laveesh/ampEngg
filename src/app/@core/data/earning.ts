@@ -18,4 +18,6 @@ export abstract class EarningData {
   abstract getEarningLiveUpdateCardData(currency: string): Observable<any[]>;
   abstract getEarningCardData(currency: string): Observable<LiveUpdateChart>;
   abstract getEarningPieChartData(): Observable<PieChart[]>;
+  abstract getInstantLiveUpdateCardData(currency: string): Observable<any[]>;
+  abstract getInstantCardData(currency: string): Observable<LiveUpdateChart>;
 }
