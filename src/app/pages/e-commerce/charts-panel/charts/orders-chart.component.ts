@@ -48,6 +48,7 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         delay(1),
       )
       .subscribe(config => {
+        console.log(config);
         const eTheme: any = config.variables.orders;
 
         this.setOptions(eTheme);
@@ -58,18 +59,21 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
   setOptions(eTheme) {
     this.option = {
       grid: {
-        left: 40,
+        left: 60,
         top: 20,
         right: 0,
-        bottom: 40,
+        bottom: 100,
       },
       tooltip: {
-        trigger: 'item',
+        trigger: 'axis',
         axisPointer: {
-          type: 'line',
+          type: 'cross',
           lineStyle: {
             color: eTheme.tooltipLineColor,
             width: eTheme.tooltipLineWidth,
+          },
+          crossStyle: {
+            color: '#73a0fc',
           },
         },
         textStyle: {
@@ -82,7 +86,7 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         borderColor: eTheme.tooltipBorderColor,
         borderWidth: 1,
         formatter: (params) => {
-          return Math.round(parseInt(params.value, 10));
+          return `${Math.round(parseInt(params[0].value, 10))} MW`;
         },
         extraCssText: eTheme.tooltipExtraCss,
       },
@@ -92,34 +96,45 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
         offset: 5,
         data: [],
         axisTick: {
-          show: false,
+          show: true,
         },
         axisLabel: {
           color: eTheme.axisTextColor,
-          fontSize: eTheme.axisFontSize,
+          fontSize: 12,
+          rotate: 90,
         },
         axisLine: {
           lineStyle: {
-            color: eTheme.axisLineColor,
+            color: '#73a0fc',
             width: '2',
           },
         },
       },
       yAxis: {
+        name: 'Power Generated (MW)',
+        nameLocation: 'center',
+        nameGap: '20',
+        offset: 1,
+        nameTextStyle: {
+          color: eTheme.axisTextColor,
+          fontSize: eTheme.axisFontSize,
+          width: 100,
+          padding: [0, 0, 17, 0]
+        },
         type: 'value',
         boundaryGap: false,
         axisLine: {
           lineStyle: {
-            color: eTheme.axisLineColor,
+            color: '#73a0fc',
             width: '1',
           },
         },
         axisLabel: {
           color: eTheme.axisTextColor,
-          fontSize: eTheme.axisFontSize,
+          fontSize: 12,
         },
         axisTick: {
-          show: false,
+          show: true,
         },
         splitLine: {
 
