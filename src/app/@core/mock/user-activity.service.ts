@@ -32,7 +32,15 @@ export class UserActivityService extends UserActivityData {
     const result = {};
     for (let i = 0; i < 31; i++) {
       const perDaySet = [];
-      for (let j = 0; j < 96; j++) {
+      const today = new Date().getDate() - 1;
+      let maxslot = 96;
+      if (today === i) {
+        const base = new Date().getHours() * 4;
+        const min = new Date().getMinutes();
+        const factor = 60 / min;
+        maxslot = base + ( factor > 4 ? 0 : factor > 2 ? 1 : factor > 1.3 ? 2 : 3);
+      }
+      for (let j = 0; j < maxslot; j++) {
         perDaySet.push({
           slot: blocks[j],
           mw: genData[i].mw[j],
@@ -71,6 +79,6 @@ export class UserActivityService extends UserActivityData {
   }
 
   getUserActivityData(day: number): Observable<Generation[]> {
-    return observableOf(this.data[day]);
+    return observableOf(this.data[day - 1]);
   }
 }
