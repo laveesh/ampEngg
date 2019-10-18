@@ -3,8 +3,9 @@
     <h3>Electricity Analytics</h3>
     <div class="subtitle">Generation</div>
   </nb-card-header>
-  <nb-tabset fullWidth (changeTab)="changeTab($event)">
-    <nb-tab tabTitle="15 Minute Blocks">
+  <nb-card-body>
+  <!-- <nb-tabset fullWidth (changeTab)="changeTab($event)"> -->
+    <!-- <nb-tab tabTitle="15 Minute Blocks"> -->
       <div class="chart-container">
         <ngx-chart-panel-summary
           [summary]="chartPanelSummary"
@@ -19,7 +20,8 @@
           [ordersChartData]="ordersChartData"
         ></ngx-orders-chart>
       </div>
-    </nb-tab>
+    </nb-card-body>
+    <!-- </nb-tab> -->
     <!-- <nb-tab tabTitle="Instantaneous" [lazyLoad]="true">
       <div class="chart-container">
         <ngx-chart-panel-summary
@@ -36,5 +38,5 @@
         ></ngx-profit-chart>
       </div>
     </nb-tab> -->
-  </nb-tabset>
+  <!-- </nb-tabset> -->
 </nb-card>
