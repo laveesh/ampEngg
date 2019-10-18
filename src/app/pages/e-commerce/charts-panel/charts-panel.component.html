@@ -3,26 +3,24 @@
     <h3>Electricity Analytics</h3>
     <div class="subtitle">Generation</div>
   </nb-card-header>
-  <nb-card-body>
+  <ngx-chart-panel-summary
+    [summary]="chartPanelSummary"
+  ></ngx-chart-panel-summary>
   <!-- <nb-tabset fullWidth (changeTab)="changeTab($event)"> -->
-    <!-- <nb-tab tabTitle="15 Minute Blocks"> -->
-      <div class="chart-container">
-        <ngx-chart-panel-summary
-          [summary]="chartPanelSummary"
-        ></ngx-chart-panel-summary>
-        <ngx-chart-panel-header
-          [type]="period"
-          (periodChange)="setPeriodAndGetChartData($event)"
-        >
-        </ngx-chart-panel-header>
-        <ngx-orders-chart
-          #ordersChart
-          [ordersChartData]="ordersChartData"
-        ></ngx-orders-chart>
-      </div>
-    </nb-card-body>
-    <!-- </nb-tab> -->
-    <!-- <nb-tab tabTitle="Instantaneous" [lazyLoad]="true">
+  <!-- <nb-tab tabTitle="15 Minute Blocks"> -->
+  <div class="chart-container">
+    <ngx-chart-panel-header
+      [type]="period"
+      (periodChange)="setPeriodAndGetChartData($event)"
+    >
+    </ngx-chart-panel-header>
+    <ngx-orders-chart
+      #ordersChart
+      [ordersChartData]="ordersChartData"
+    ></ngx-orders-chart>
+  </div>
+  <!-- </nb-tab> -->
+  <!-- <nb-tab tabTitle="Instantaneous" [lazyLoad]="true">
       <div class="chart-container">
         <ngx-chart-panel-summary
           [summary]="chartPanelSummary"
